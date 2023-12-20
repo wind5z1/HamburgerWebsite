@@ -4,6 +4,12 @@
         <meta charset="UTF-8">
         <meta name = "viewport" content="width=device-width,initial-scale=1.0">
         <title>ハンバーガー店</title>
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <style>
             body{
                 font-family: fantasy,sans-serif;
@@ -20,23 +26,61 @@
                 padding: 1em;
                 text-align: center;
             }
+            nav{
+                display: flex;
+                justify-content: flex-start;
+                font-size: 20px;
+
+            }
+            nav a{
+                margin-right: 60px;
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+            }
             .about-section{
                 padding: 20px;
                 text-align: center;
                 margin-bottom: 600px;
             }
             .about-section h2{
-                font-size: 90px;
+                font-size: 40px;
             }
             .about-section p{
-                font-size: 30px;
+                font-size: 25px;
+            }
+            .about-content{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 30px;
+                padding: 20px;
+                flex-direction: column;
+            }
+            .about-content img{
+                max-width: 50%;
+                margin-right: 20px;
+            }
+            .about-content .about-text{
+                flex-grow: 1;
+            }
+            .about-content .about-text p{
+                margin-bottom: 20px;
+            }
+            .about-content .about-text h3{
+                font-size: 24px;
+                margin-top: 250px;
             }
             section{
                 margin: 20px;
                 text-align:center;
             }
+            .menu-title{
+                font-size: 50px;
+                margin-bottom: 100px;
+            }
             .burger-img{
-                max-width: 50%;
+                max-width: 30%;
                 height: auto;
             }
             footer{
@@ -52,20 +96,79 @@
             .footer-hidden{
                 transform: translateY(100%);
             }
+            .slider-container{
+                position: relative;
+                max-width: 800px;
+                margin: auto;
+                overflow: hidden;
+                margin-top: 30px;
+            }
+            .slick-prev, .slick-next{
+                font-size: 24px;
+                color:black;
+                margin-top: 10px;
+            }
+            .slide{
+                position: relative;
+            }
+            .slide img{
+                max-width: 100%;
+                height: auto;
+            }
+            .caption{
+                background: rgba(255, 255, 255, 0.8);
+                padding: 10px;
+                border-radius: 5px;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
         <header>
             <h1>Hamburger Shop</h1>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#menu">Menu</a>
+            </nav>
         </header>
 
-        <div class="about-section">
+        <div id= "about" class="about-section">
             <h2>About Us</h2>
-            <p>Welcome to HamburgerShop! We provide many food and not just burger!Build in 2002 until now!We pride ourselves on providing delicious and high-quality burgers and snacks that will satisfy your cravings.Start to explore our menu noe and indulge in the mouthwatering flavors that crafted just for you.
+            <div class="about-content">
+                <img src ="BurgerShop.jpg" alt="About Us Image">
+                <div class="about-text">
+                    <p>Welcome to HamburgerShop! We provide many food and not just burger!Build in 2002 until now!We pride ourselves on providing delicious and high-quality burgers and snacks that will satisfy your cravings.Start to explore our menu now and indulge in the mouthwatering flavors that crafted just for you.
             </p>
         </div>
+        <div id="freshness" class="about-section">
+            <h3>Freshness and Quality</h3>
+            <div class="slider-container slider">
+                <div class="slide">
+                    <img src="Bun.PNG" alt="Freshbun Image1">
+                    <div class="caption">
+                        <p>Our bun is freshly baked everyday and homemaded.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="FreshTomato.PNG" alt="freshTomato Image2">
+                    <div class="caption">
+                        <p>Vegetable is freshly cutted in store daily and only cutted for the amount of the day</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="Freshpatty.PNG" alt="freshPatty Image2">
+                    <div class="caption">
+                        <p>The meat patties is all using beef and seasoning by using our own recipe sauce</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
 
-        <section>
+        <section id="menu">
+            <h2 class="menu-title">Menu</h2>
             <h2>Big Hamburger</h2>
             <img class="burger-img" src="BigHamburger.png" alt="Picture of Big Hamburger">
             <p>Our signature burger in our shop.Make it fresh,tasty and the meat is juicy and tender.</p>
@@ -78,6 +181,17 @@
             <p>&copy; 2023 HamburgerShop.All Rights Reserved</p>
         </footer>
         <script>
+            $(document).ready(function(){
+                $('.slider').slick({
+                    infinite:true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 5000,
+                    prevArrow: '<button type ="button" class="slick-prev">&#9665;</button>',
+                    nextArrow: '<button type ="button" class="slick-next">&#9655;</button>'
+                });
+            });
             let lastScrollTop = 0;
             window.addEventListener('scroll',function (){
                 const st = window.pageYOffset || document.documentElement.scrollTop;
