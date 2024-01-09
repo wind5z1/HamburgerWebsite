@@ -15,15 +15,15 @@
                 font-family: fantasy,sans-serif;
                 margin: 0;
                 padding: 0;
-                background: url('FastFoodBackground.jpg')center/cover no-repeat;
                 display: flex;
+                background-color: #876654;
                 flex-direction: column;
                 color: #ffd700;
             }
             header{
-                background-color: #ffd700;
+                background-color: #DAA520;
                 color: black;
-                padding: 1em;
+                padding: 0.5em;
                 text-align: center;
             }
             nav{
@@ -58,7 +58,7 @@
                 flex-direction: column;
             }
             .about-content img{
-                max-width: 50%;
+                max-width: 100%;
                 margin-right: 20px;
             }
             .about-content .about-text{
@@ -84,7 +84,7 @@
                 height: auto;
             }
             footer{
-                background-color: #ffd700;
+                background-color: #DAA520;
                 color: black;
                 padding: 1em;
                 text-align: center;
@@ -98,11 +98,12 @@
             }
             .slider-container{
                 position: relative;
-                max-width: 800px;
+                max-width: 700px;
                 margin: auto;
                 overflow: hidden;
                 margin-top: 30px;
             }
+
             .slick-prev, .slick-next{
                 font-size: 24px;
                 color:black;
@@ -116,11 +117,63 @@
                 height: auto;
             }
             .caption{
-                background: rgba(255, 255, 255, 0.8);
+                background: rgba(0, 128, 128, 0.8);
                 padding: 10px;
                 border-radius: 5px;
                 text-align: center;
+                max-width: 1107px;
             }
+
+            .new-slider{
+                position: relative;
+                max-width: 1200px;
+                margin: auto;
+                overflow: hidden;
+                margin-top: 30px;
+            }
+            .new-slider .slick-dots{
+                position: absolute;
+                bottom: 5px;
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .new-slider .slick-dots li{
+                margin: 0 5px;
+            }
+
+            .new-slider .slick-dots li button{
+                font-size: 0;
+                color: transparent;
+                background-color: #333;
+                border: none;
+                padding: 5px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            .new-slider .slick-dots li.slick-active button{
+                background-color: #555;
+            }
+
+            .slider-above-about{
+                max-width: 2050px;
+                margin: auto;
+                background-color: #ffd700;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .slider-above-about .slick-prev, .slider-above-about .slick-next{
+                color: black;
+            }
+
+            #freshness h3{
+                font-size: 50px;
+            }
+
+
         </style>
     </head>
     <body>
@@ -133,6 +186,19 @@
             </nav>
         </header>
 
+        <div class="slider-container new-slider slider-above-about">
+            <div class="slide">
+                <img src="Offer1.PNG" alt="Discount Campaign">
+            </div>
+            <div class="slide">
+                <img src="Offer2.PNG" alt="Discount Campaign">
+            </div>
+            <div class="slide">
+                <img src="Offer3.PNG" alt="Discount Campaign">
+            </div>
+
+        </div>
+
         <div id= "about" class="about-section">
             <h2>About Us</h2>
             <div class="about-content">
@@ -143,7 +209,7 @@
         </div>
         <div id="freshness" class="about-section">
             <h3>Freshness and Quality</h3>
-            <div class="slider-container slider">
+            <div class="slider-container">
                 <div class="slide">
                     <img src="Bun.PNG" alt="Freshbun Image1">
                     <div class="caption">
@@ -188,9 +254,21 @@
                     slidesToScroll: 1,
                     autoplay: true,
                     autoplaySpeed: 5000,
-                    prevArrow: '<button type ="button" class="slick-prev">&#9665;</button>',
-                    nextArrow: '<button type ="button" class="slick-next">&#9655;</button>'
+                    dots: true,
+                    prevArrow: false,
+                    nextArrow: false,
                 });
+                $('.new-slider').slick({
+                    infinite:true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 5000,
+                    dots: true,
+                    prevArrow: false,
+                    nextArrow: false,
+                });
+
             });
             let lastScrollTop = 0;
             window.addEventListener('scroll',function (){
