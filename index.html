@@ -4,11 +4,8 @@
         <meta charset="UTF-8">
         <meta name = "viewport" content="width=device-width,initial-scale=1.0">
         <title>ハンバーガー店</title>
-
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <style>
             body{
@@ -16,12 +13,12 @@
                 margin: 0;
                 padding: 0;
                 display: flex;
-                background-color: #876654;
+                background-color: #FFFFFF;
                 flex-direction: column;
                 color: #ffd700;
             }
             header{
-                background-color: #DAA520;
+                background-color: #CCCCCC;
                 color: black;
                 padding: 0.5em;
                 text-align: center;
@@ -84,7 +81,7 @@
                 height: auto;
             }
             footer{
-                background-color: #DAA520;
+                background-color: #734e30;
                 color: black;
                 padding: 1em;
                 text-align: center;
@@ -157,10 +154,44 @@
                 background-color: #555;
             }
 
+            .key-visual-wrap{
+                position: relative;
+                overflow: hidden;
+                background-color: #ffd700;
+            }
+
+            .notification-bar{
+                background-color: #FFF;
+                color: #ffd700;
+                padding: 100px;
+                text-align: center;
+                transform: translateY(50%);
+                transition: transform 0.5s ease;
+            }
+
+            .notification-message-container{
+                margin-top: 20px;
+            }
+
+            .notification-bar-show{
+                transform: translateY(0);
+            }
+
+            .notification-message{
+                font-size: 45px;
+                text-align: center;
+                color: #555;
+                margin-bottom: 200px;
+            }
+
+            .notification-topic{
+                font-size: 100px;
+                color: #CCCCCC;
+            }
+
             .slider-above-about{
                 max-width: 2050px;
                 margin: auto;
-                background-color: #ffd700;
                 padding: 20px;
                 text-align: center;
             }
@@ -185,7 +216,7 @@
                 <a href="#menu">Menu</a>
             </nav>
         </header>
-
+    <div class="key-visual-wrap">
         <div class="slider-container new-slider slider-above-about">
             <div class="slide">
                 <img src="Offer1.PNG" alt="Discount Campaign">
@@ -198,6 +229,14 @@
             </div>
 
         </div>
+    </div>
+    <div class="notification-bar notification-bar-show" id="notificationbar">
+        <div class="notification-topic">Importance Notification:</div>
+        <div class="notification-message-container">
+            <div class="notification-message"></div>
+        </div>
+       
+    </div>
 
         <div id= "about" class="about-section">
             <h2>About Us</h2>
@@ -247,6 +286,31 @@
             <p>&copy; 2023 HamburgerShop.All Rights Reserved</p>
         </footer>
         <script>
+            const notificationtopic = ["Importance Nortifications:"];
+            const notification = ["<br> We have a special offer this week!Don't forget to check it out!",
+                                    "New burger is coming soon!",
+                                    "Opening new shop in Japan!"];
+            const notificationbar = document.getElementById('notificationbar');
+
+            const topicDiv= document.createElement('div');
+            topicDiv.classList.add('notificationtopic[0]');
+            topicDiv.textContent = notificationtopic[0];
+            notificationbar.appendChild(topicDiv);
+
+            const messageDiv= document.createElement('div');
+            topicDiv.classList.add('notification-message');
+            notificationbar.appendChild(messageDiv);
+            let currentIndex = 0;
+            function displayNotification(){
+              
+                notificationbar.innerHTML = `<div class="notification-message">${notification[currentIndex]}</div>`;
+                notificationbar.classList.add('notification-bar-show');
+
+                setTimeout(() => {notificationbar.classList.remove('notification-bar-show');
+                currentIndex = (currentIndex + 1) % notification.length;
+                setTimeout(displayNotification,500);},3000)
+            }
+            displayNotification();
             $(document).ready(function(){
                 $('.slider').slick({
                     infinite:true,
@@ -284,3 +348,4 @@
         </script>
     </body>
 </html>
+
