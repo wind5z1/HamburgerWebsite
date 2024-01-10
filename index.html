@@ -232,9 +232,6 @@
     </div>
     <div class="notification-bar notification-bar-show" id="notificationbar">
         <div class="notification-topic">Importance Notification:</div>
-        <div class="notification-message-container">
-            <div class="notification-message"></div>
-        </div>
        
     </div>
 
@@ -286,23 +283,12 @@
             <p>&copy; 2023 HamburgerShop.All Rights Reserved</p>
         </footer>
         <script>
-            const notificationtopic = ["Importance Nortifications:"];
             const notification = ["<br> We have a special offer this week!Don't forget to check it out!",
                                     "New burger is coming soon!",
                                     "Opening new shop in Japan!"];
             const notificationbar = document.getElementById('notificationbar');
-
-            const topicDiv= document.createElement('div');
-            topicDiv.classList.add('notificationtopic[0]');
-            topicDiv.textContent = notificationtopic[0];
-            notificationbar.appendChild(topicDiv);
-
-            const messageDiv= document.createElement('div');
-            topicDiv.classList.add('notification-message');
-            notificationbar.appendChild(messageDiv);
             let currentIndex = 0;
             function displayNotification(){
-              
                 notificationbar.innerHTML = `<div class="notification-message">${notification[currentIndex]}</div>`;
                 notificationbar.classList.add('notification-bar-show');
 
@@ -348,4 +334,5 @@
         </script>
     </body>
 </html>
+
 
