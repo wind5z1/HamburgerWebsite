@@ -4,208 +4,12 @@
         <meta charset="UTF-8">
         <meta name = "viewport" content="width=device-width,initial-scale=1.0">
         <title>ハンバーガー店</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-        <style>
-            body{
-                font-family: fantasy,sans-serif;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                background-color: #FFFFFF;
-                flex-direction: column;
-                color: #ffd700;
-            }
-            header{
-                background-color: #CCCCCC;
-                color: black;
-                padding: 0.5em;
-                text-align: center;
-            }
-            nav{
-                display: flex;
-                justify-content: flex-start;
-                font-size: 20px;
-
-            }
-            nav a{
-                margin-right: 60px;
-                text-decoration: none;
-                color: black;
-                font-weight: bold;
-            }
-            .about-section{
-                padding: 20px;
-                text-align: center;
-                margin-bottom: 600px;
-            }
-            .about-section h2{
-                font-size: 40px;
-            }
-            .about-section p{
-                font-size: 25px;
-            }
-            .about-content{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-top: 30px;
-                padding: 20px;
-                flex-direction: column;
-            }
-            .about-content img{
-                max-width: 100%;
-                margin-right: 20px;
-            }
-            .about-content .about-text{
-                flex-grow: 1;
-            }
-            .about-content .about-text p{
-                margin-bottom: 20px;
-            }
-            .about-content .about-text h3{
-                font-size: 24px;
-                margin-top: 250px;
-            }
-            section{
-                margin: 20px;
-                text-align:center;
-            }
-            .menu-title{
-                font-size: 50px;
-                margin-bottom: 100px;
-            }
-            .burger-img{
-                max-width: 30%;
-                height: auto;
-            }
-            footer{
-                background-color: #734e30;
-                color: black;
-                padding: 1em;
-                text-align: center;
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-                transition: transform 0.3s ease;
-            }
-            .footer-hidden{
-                transform: translateY(100%);
-            }
-            .slider-container{
-                position: relative;
-                max-width: 700px;
-                margin: auto;
-                overflow: hidden;
-                margin-top: 30px;
-            }
-
-            .slick-prev, .slick-next{
-                font-size: 24px;
-                color:black;
-                margin-top: 10px;
-            }
-            .slide{
-                position: relative;
-            }
-            .slide img{
-                max-width: 100%;
-                height: auto;
-            }
-            .caption{
-                background: rgba(0, 128, 128, 0.8);
-                padding: 10px;
-                border-radius: 5px;
-                text-align: center;
-                max-width: 1107px;
-            }
-
-            .new-slider{
-                position: relative;
-                max-width: 1200px;
-                margin: auto;
-                overflow: hidden;
-                margin-top: 30px;
-            }
-            .new-slider .slick-dots{
-                position: absolute;
-                bottom: 5px;
-                list-style: none;
-                display: flex;
-                justify-content: center;
-                width: 100%;
-            }
-
-            .new-slider .slick-dots li{
-                margin: 0 5px;
-            }
-
-            .new-slider .slick-dots li button{
-                font-size: 0;
-                color: transparent;
-                background-color: #333;
-                border: none;
-                padding: 5px;
-                border-radius: 50%;
-                cursor: pointer;
-            }
-            .new-slider .slick-dots li.slick-active button{
-                background-color: #555;
-            }
-
-            .key-visual-wrap{
-                position: relative;
-                overflow: hidden;
-                background-color: #ffd700;
-            }
-
-            .notification-bar{
-                background-color: #FFF;
-                color: #ffd700;
-                padding: 100px;
-                text-align: center;
-                transform: translateY(50%);
-                transition: transform 0.5s ease;
-            }
-
-            .notification-message-container{
-                margin-top: 20px;
-            }
-
-            .notification-bar-show{
-                transform: translateY(0);
-            }
-
-            .notification-message{
-                font-size: 45px;
-                text-align: center;
-                color: #555;
-                margin-bottom: 200px;
-            }
-
-            .notification-topic{
-                font-size: 100px;
-                color: #CCCCCC;
-            }
-
-            .slider-above-about{
-                max-width: 2050px;
-                margin: auto;
-                padding: 20px;
-                text-align: center;
-            }
-
-            .slider-above-about .slick-prev, .slider-above-about .slick-next{
-                color: black;
-            }
-
-            #freshness h3{
-                font-size: 50px;
-            }
-
-
-        </style>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     </head>
     <body>
         <header>
@@ -230,7 +34,7 @@
 
         </div>
     </div>
-    <div class="notification-bar notification-bar-show" id="notificationbar">
+    <div class="notification-bar" id="notificationbar">
         <div class="notification-topic">Importance Notification:</div>
        
     </div>
@@ -279,17 +83,29 @@
             <img class="burger-img" src="HamburgerSetMenu.png" alt="Picture of Hamburger Set">
             <p>Signature set in our shop.The bun is both served with butter and the cheese is came from new zealand.It also serves with French Fries and tomato sauce.</p>
         </section>
+        <div id="map" style="height: 400px;">
+
+        </div>
         <footer>
-            <p>&copy; 2023 HamburgerShop.All Rights Reserved</p>
-        </footer>
+            <div class="footer-wrapper">
+            <p>&copy; 2024 HamburgerShop.All Rights Reserved</p>
+            <div class="social-icons">
+                <a href="https://instagram.com/"
+                target="_blank">
+            <img src="instagram-icon.png" alt="Instagram Icon">
+               </a>
+            </div>
+        </div>
+    </footer>
         <script>
-            const notification = ["<br> We have a special offer this week!Don't forget to check it out!",
+            const notification = [ "<br> We have a special offer this week!Don't forget to check it out!",
                                     "New burger is coming soon!",
                                     "Opening new shop in Japan!"];
             const notificationbar = document.getElementById('notificationbar');
             let currentIndex = 0;
             function displayNotification(){
-                notificationbar.innerHTML = `<div class="notification-message">${notification[currentIndex]}</div>`;
+                notificationbar.innerHTML = `<div class="notification-topic">Importance Notification:</div>
+                                            <div class="notification-message">${notification[currentIndex]}</div>`;
                 notificationbar.classList.add('notification-bar-show');
 
                 setTimeout(() => {notificationbar.classList.remove('notification-bar-show');
@@ -321,16 +137,9 @@
 
             });
             let lastScrollTop = 0;
-            window.addEventListener('scroll',function (){
-                const st = window.pageYOffset || document.documentElement.scrollTop;
-
-                if(st > lastScrollTop){
-                    document.querySelector('footer').classList.add('footer-hidden');
-                }else{
-                    document.querySelector('footer').classList.remove('footer-hidden');
-                }
-                lastScrollTop = st <= 0? 0 : st;
-            })
+           var map = L.map('map').setView([33.588203,130.417013],12);
+           L.tileLayer('https://{s}.title.openstreetmap.org/{z}/{x}/{y}.png',{attribution: 'OpenStreetMap contributors'}).addTo(map);
+           L.marker([33.588203,130.417013]).addTo(map);
         </script>
     </body>
 </html>
