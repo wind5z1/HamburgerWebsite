@@ -1,219 +1,246 @@
 
-            body{
-                font-family: fantasy,sans-serif;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                background-color: #FFFFFF;
-                flex-direction: column;
-                color: #ffd700;
-            }
-            header{
-                background-color: #CCCCCC;
-                color: black;
-                padding: 0.5em;
-                text-align: center;
-            }
-            nav{
-                display: flex;
-                justify-content: flex-start;
-                font-size: 20px;
+body{
+    font-family: fantasy,sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #FFFFFF;
+    flex-direction: column;
+    color: #ffd700;
+}
+header{
+    background-color: #CCCCCC;
+    color: black;
+    padding: 0.5em;
+    text-align: center;
+}
+nav{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
 
-            }
-            nav a{
-                margin-right: 60px;
-                text-decoration: none;
-                color: black;
-                font-weight: bold;
-            }
-            .about-section{
-                padding: 20px;
-                text-align: center;
-                margin-bottom: 90px;
-            }
-            .about-section h2{
-                font-size: 40px;
-            }
-            .about-section p{
-                font-size: 25px;
-            }
-            .about-content{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-top: 30px;
-                padding: 20px;
-                flex-direction: column;
-            }
-            .about-content img{
-                max-width: 80%;
-                margin-right: 20px;
-            }
-            .about-content .about-text{
-                flex-grow: 1;
-            }
-            .about-content .about-text p{
-                margin-bottom: 20px;
-            }
-            .about-content .about-text h3{
-                font-size: 24px;
-                margin-top: 250px;
-            }
-            section{
-                margin: 20px;
-                text-align:center;
-            }
-            .menu-title{
-                font-size: 50px;
-                margin-bottom: 100px;
-            }
-            .burger-img{
-                max-width: 30%;
-                height: auto;
-            }
-            footer{
-                background-color: #734e30;
-                color: black;
-                text-align: center;
-                margin-top: auto;
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .footer-wrapper{
-                padding: 10em;
-            }
-
-            .social-icons{
-                display: flex;
-                align-items: center;
-            }
-            .social-icons a{
-                margin-left: 870px;
-            }
-
-            .social-icons img{
-                width: 30px;
-                height: 30px;
-            }
-            .slider-container{
-                position: relative;
-                max-width: 700px;
-                margin: auto;
-                overflow: hidden;
-                margin-top: 30px;
-            }
-
-            .slick-prev, .slick-next{
-                font-size: 24px;
-                color:black;
-                margin-top: 10px;
-            }
-            .slide{
-                position: relative;
-            }
-            .slide img{
-                max-width: 100%;
-                height: auto;
-            }
-            .caption{
-                background: rgba(0, 128, 128, 0.8);
-                padding: 10px;
-                border-radius: 5px;
-                text-align: center;
-                max-width: 1107px;
-            }
-
-            .new-slider{
-                position: relative;
-                max-width: 1200px;
-                margin: auto;
-                overflow: hidden;
-                margin-top: 30px;
-            }
-            .new-slider .slick-dots{
-                position: absolute;
-                bottom: 5px;
-                list-style: none;
-                display: flex;
-                justify-content: center;
-                width: 100%;
-            }
-
-            .new-slider .slick-dots li{
-                margin: 0 5px;
-            }
-
-            .new-slider .slick-dots li button{
-                font-size: 0;
-                color: transparent;
-                background-color: #333;
-                border: none;
-                padding: 5px;
-                border-radius: 50%;
-                cursor: pointer;
-            }
-            .new-slider .slick-dots li.slick-active button{
-                background-color: #555;
-            }
-
-            .key-visual-wrap{
-                position: relative;
-                overflow: hidden;
-                background-color: #ffd700;
-            }
-
-            .notification-bar{
-                background-color: #FFF;
-                color: #ffd700;
-                padding: 100px;
-                text-align: center;
-                transform: translateX(100%);
-                transition: transform 0.5s ease;
-            }
-
-            .notification-message-container{
-                margin-top: 20px;
-            }
-
-            .notification-bar-show{
-                transform: translateY(0)!important;
-            }
-
-            .notification-message{
-                font-size: 45px;
-                text-align: center;
-                color: #555;
-                margin-bottom: 200px;
-            }
-
-            .notification-topic{
-                font-size: 100px;
-                color: #CCCCCC;
-                margin-bottom: 20px;
-            }
-
-            .slider-above-about{
-                max-width: 1500px;
-                margin: auto;
-                padding: 20px;
-                text-align: center;
-            }
-
-            .slider-above-about .slick-prev, .slider-above-about .slick-next{
-                color: black;
-            }
-
-            #freshness h3{
-                font-size: 50px;
-            }
-            #map{
-                height: 400px;
-                width: 100%;
-            }
-
-            #menu p{
-                margin-bottom: 100px;
-            }
-
+}
+nav a{
+    margin-right: 60px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.about-section{
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 90px;
     
+}
+.about-section h2{
+    font-size: 40px;
+}
+.about-section p{
+    font-size: 25px;
+}
+.about-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 20px;
+    flex-direction: column;
+}
+.about-content img{
+    max-width: 80%;
+    margin-right: 20px;
+}
+.about-content .about-text{
+    flex-grow: 1;
+}
+.about-content .about-text p{
+    margin-bottom: 20px;
+}
+.about-content .about-text h3{
+    font-size: 24px;
+    margin-top: 250px;
+}
+section{
+    margin: 20px;
+    text-align:center;
+}
+.menu-title{
+    font-size: 50px;
+    margin-bottom: 100px;
+}
+.burger-img{
+    max-width: 30%;
+    height: auto;
+}
+footer{
+    background-color: #734e30;
+    color: black;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.footer-wrapper{
+    padding: 10em;
+}
+
+.social-icons{
+    display: flex;
+    align-items: center;
+}
+.social-icons a{
+    margin-left: 1120px;
+}
+
+.social-icons img{
+    width: 30px;
+    height: 30px;
+}
+.slider-container{
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.slick-prev, .slick-next{
+    font-size: 24px;
+    color:black;
+    margin-top: 10px;
+}
+.slide{
+    position: relative;
+}
+.slide img{
+    max-width: 100%;
+    height: auto;
+}
+.caption{
+    background: rgba(0, 128, 128, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 1107px;
+}
+
+.new-slider{
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 30px;
+}
+.new-slider .slick-dots{
+    position: absolute;
+    bottom: 5px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.new-slider .slick-dots li{
+    margin: 0 5px;
+}
+
+.new-slider .slick-dots li button{
+    font-size: 0;
+    color: transparent;
+    background-color: #333;
+    border: none;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.new-slider .slick-dots li.slick-active button{
+    background-color: #555;
+}
+
+.key-visual-wrap{
+    position: relative;
+    overflow: hidden;
+    background-color: #ffd700;
+}
+
+.notification-bar{
+    background-color: #FFF;
+    color: #ffd700;
+    padding: 100px;
+    text-align: center;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+
+.notification-message-container{
+    margin-top: 20px;
+}
+
+.notification-bar-show{
+    transform: translateY(0)!important;
+}
+
+.notification-message{
+    font-size: 45px;
+    text-align: center;
+    color: #555;
+    margin-bottom: 200px;
+}
+
+.notification-topic{
+    font-size: 100px;
+    color: #CCCCCC;
+    margin-bottom: 20px;
+}
+
+.slider-above-about{
+    max-width: 1500px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.slider-above-about .slick-prev, .slider-above-about .slick-next{
+    color: black;
+}
+
+#freshness h3{
+    font-size: 50px;
+}
+#map{
+    height: 400px;
+    width: 100%;
+}
+
+#menu p{
+    margin-bottom: 100px;
+}
+
+#menu{
+    background-color: #2E9534;
+    margin: 5px;
+    text-align: center;
+}
+
+#about{
+    background-color: #F79212;
+    padding: 20px;
+    text-align: center;
+    margin:10px 
+}
+
+.menu-item,.fade-in-visible{
+    opacity: 1;
+    transform: translate(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-visible{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
