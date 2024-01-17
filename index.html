@@ -38,7 +38,6 @@
         <div class="notification-topic">Importance Notification:</div>
        
     </div>
-
         <div id= "about" class="about-section">
             <h2>About Us</h2>
             <div class="about-content">
@@ -47,6 +46,7 @@
                     <p>Welcome to HamburgerShop! We provide many food and not just burger!Build in 2002 until now!We pride ourselves on providing delicious and high-quality burgers and snacks that will satisfy your cravings.Start to explore our menu now and indulge in the mouthwatering flavors that crafted just for you.
             </p>
         </div>
+    </div>
         <div id="freshness" class="about-section">
             <h3>Freshness and Quality</h3>
             <div class="slider-container">
@@ -71,17 +71,20 @@
             </div>
         </div>
     </div>
- </div>
+ 
 
         <section id="menu">
             <h2 class="menu-title">Menu</h2>
+            <div class="menu-item">
             <h2>Big Hamburger</h2>
             <img class="burger-img" src="BigHamburger.png" alt="Picture of Big Hamburger">
             <p>Our signature burger in our shop.Make it fresh,tasty and the meat is juicy and tender.</p>
-
+        </div>
+        <div class="menu-item">
             <h3>HamburgerSetMenu</h3>
             <img class="burger-img" src="HamburgerSetMenu.png" alt="Picture of Hamburger Set">
             <p>Signature set in our shop.The bun is both served with butter and the cheese is came from new zealand.It also serves with French Fries and tomato sauce.</p>
+        </div>
         </section>
         <div id="map" style="height: 400px;">
 
@@ -140,6 +143,23 @@
            var map = L.map('map').setView([33.588203,130.417013],12);
            L.tileLayer('https://{s}.title.openstreetmap.org/{z}/{x}/{y}.png',{attribution: 'OpenStreetMap contributors'}).addTo(map);
            L.marker([33.588203,130.417013]).addTo(map);
+
+           function isInViewport(element){
+            const rect = element.getBoundingClientRect();
+            return(rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth));
+           }
+           function handleScroll(){
+               const menuSection = document.getElementById('menu');
+               const menuItems = document.querySelectorAll('.menu-item');
+               const scrollPosition = window.scrollY;
+               if(scrollPosition > menuSection.offsetTop - window.innerHeight / 2){
+                menuItems.forEach((item) =>  {item.classList.add('fade-in-visible');  
+                });
+                document.removeEventListener('scroll',handleScroll);
+               }
+           }
+           document.addEventListener('scroll',handleScroll);
+           document.addEventListener('DOMContentLoaded',handleScroll);
         </script>
     </body>
 </html>
