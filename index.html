@@ -10,6 +10,7 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
     </head>
     <body>
         <header>
@@ -144,22 +145,45 @@
            L.tileLayer('https://{s}.title.openstreetmap.org/{z}/{x}/{y}.png',{attribution: 'OpenStreetMap contributors'}).addTo(map);
            L.marker([33.588203,130.417013]).addTo(map);
 
-           function isInViewport(element){
-            const rect = element.getBoundingClientRect();
-            return(rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth));
+           function isInViewport(el){
+            let rect = el.getBoundingClientRect();
+            return(
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <=(window.innerWidth || document.documentElement.clientWidth)
+            );
            }
-           function handleScroll(){
-               const menuSection = document.getElementById('menu');
-               const menuItems = document.querySelectorAll('.menu-item');
-               const scrollPosition = window.scrollY;
-               if(scrollPosition > menuSection.offsetTop - window.innerHeight / 2){
-                menuItems.forEach((item) =>  {item.classList.add('fade-in-visible');  
-                });
-                document.removeEventListener('scroll',handleScroll);
-               }
+
+           function throttle(callback,limit){
+            let waiting = false;
+            return function(){
+                if(!waiting){
+                    callback.apply(this,arguments);
+                    waiting = true;
+                    setTimeout(function(){
+                        waiting = false;
+                    }, limit);
+                }
+            };
            }
-           document.addEventListener('scroll',handleScroll);
-           document.addEventListener('DOMContentLoaded',handleScroll);
+
+           const menu = document.getElementById("menu");
+
+           window.addEventListener("scroll", function(){
+            if(isInViewport(menu)){
+                menu.classList.remove("hidden");
+            }else{
+                menu.classList.add("hidden");
+                setTimeout(() => {
+                    menu.style.transition = 'none';
+                    menu.classList.remove('hidden');
+                    menu.offsetHeight;
+                    menu.style.transition = ' ';
+                }, 800);
+            }
+           });
+           
         </script>
     </body>
 </html>
